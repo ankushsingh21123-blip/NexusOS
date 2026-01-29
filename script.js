@@ -13,7 +13,7 @@ class DataStore {
             localStorage.removeItem(this.STORAGE_KEY);
         }
         return {
-            user: { name: 'Dheeraj', status: 'Focus Mode', xp: 0, level: 1 },
+            user: { name: 'User', status: 'Focus Mode', xp: 0, level: 1 },
             tasks: [],
             habits: [],
             goals: []
