@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeOS | Personal Productivity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar glass-panel">
+            <div class="logo">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>LifeOS</span>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-target="dashboard">
+                    <i class="fa-solid fa-house-chimney"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li data-target="focus">
+                    <i class="fa-solid fa-stopwatch"></i>
+                    <span>Focus</span>
+                </li>
+                <li data-target="tasks">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>Tasks</span>
+                </li>
+                <li data-target="habits">
+                    <i class="fa-solid fa-fire"></i>
+                    <span>Habits</span>
+                </li>
+                <li data-target="goals">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <span>Goals</span>
+                </li>
+                <li data-target="profile">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profile</span>
+                </li>
+            </ul>
+            <div class="user-profile">
+                <div class="avatar">
+                    <span id="user-level" class="level-badge">1</span>
+                    <i class="fa-solid fa-user-astronaut"></i>
+                </div>
+                <div class="user-info">
+                    <span class="name">User</span>
+                    <div class="xp-bar-container">
+                        <div class="xp-bar" id="user-xp-bar" style="width: 0%"></div>
+                    </div>
+                    <span class="status" id="xp-text">0 / 100 XP</span>
+                </div>
+            </div>
+        </nav>
+        <main class="main-content">
+            <section id="dashboard" class="page-section active">
+                <header class="section-header">
+                    <div>
+                        <h1 id="greeting">Good Morning</h1>
+                        <p class="subtitle">Here's your productivity overview.</p>
+                    </div>
+                    <div class="date-display" id="date-display">Today</div>
+                </header>
+                <div class="dashboard-grid">
+                    <div class="card glass-panel stat-card">
+                        <div class="icon-box accent-blue"><i class="fa-solid fa-check"></i></div>
+                        <div class="stat-info">
+                            <h3>Tasks Done</h3>
+                            <span class="stat-value" id="dash-tasks-done">0/0</span>
+                        </div>
+                    </div>
+                    <div class="card glass-panel stat-card">
+                        <div class="icon-box accent-purple"><i class="fa-solid fa-fire"></i></div>
+                        <div class="stat-info">
+                            <h3>Habit Streak</h3>
+                            <span class="stat-value" id="dash-streak">0 Days</span>
+                        </div>
+                    </div>
+                    <div class="card glass-panel stat-card">
+                        <div class="icon-box accent-green"><i class="fa-solid fa-bolt"></i></div>
+                        <div class="stat-info">
+                            <h3>Current Level</h3>
+                            <span class="stat-value" id="dash-level">1</span>
+                        </div>
+                    </div>
+                    <div class="card glass-panel stat-card">
+                        <div class="icon-box accent-blue"><i class="fa-solid fa-chart-pie"></i></div>
+                        <div class="stat-info">
+                            <h3>Productivity</h3>
+                            <span class="stat-value" id="dash-productivity">0%</span>
+                        </div>
+                    </div>
+                    <div class="card glass-panel chart-card" style="grid-column: span 2;">
+                        <h2>Productivity Trend</h2>
+                        <canvas id="productivityChart" height="200"></canvas>
+                    </div>
+                    <div class="card glass-panel heatmap-card" style="grid-column: 1 / -1;">
+                        <h2>Habit Heatmap (2026)</h2>
+                        <div style="overflow-x: auto; padding-bottom: 8px;">
+                            <canvas id="habitHeatmap" height="180"></canvas>
+                        </div>
+                    </div>
+                    <div class="card glass-panel quote-card" style="grid-column: span 3;">
+                        <i class="fa-solid fa-quote-left quote-icon"></i>
+                        <p class="quote-text">"The future depends on what you do today."</p>
+                        <span class="quote-author">- Mahatma Gandhi</span>
+                    </div>
+                </div>
+            </section>
+            <section id="focus" class="page-section">
+                <div class="focus-container">
+                    <div class="timer-circle glass-panel">
+                        <svg class="progress-ring" width="300" height="300">
+                            <circle class="progress-ring__circle-bg" stroke="rgba(255,255,255,0.1)" stroke-width="12"
+                                fill="transparent" r="130" cx="150" cy="150" />
+                            <circle class="progress-ring__circle" id="timer-progress" stroke="var(--primary-color)"
+                                stroke-width="12" fill="transparent" r="130" cx="150" cy="150" />
+                        </svg>
+                        <div class="timer-display">
+                            <h1 id="timer-text">25:00</h1>
+                            <p id="timer-status">Focus Time</p>
+                        </div>
+                    </div>
+                    <div class="timer-controls">
+                        <button class="btn-secondary" id="timer-reset"><i class="fa-solid fa-rotate-left"></i></button>
+                        <button class="btn-primary" id="timer-toggle"><i class="fa-solid fa-play"></i> Start</button>
+                        <button class="btn-secondary" id="timer-skip"><i class="fa-solid fa-forward-step"></i></button>
+                    </div>
+                    <div class="timer-settings glass-panel">
+                        <h3>Session Settings</h3>
+                        <div class="setting-row">
+                            <span>Focus Duration</span>
+                            <select id="focus-duration" class="glass-input">
+                                <option value="25">25 min</option>
+                                <option value="45">45 min</option>
+                                <option value="60">60 min</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="tasks" class="page-section">
+                <header class="section-header">
+                    <h1>Tasks</h1>
+                    <button class="btn-primary" id="add-task-btn"><i class="fa-solid fa-plus"></i> Add Task</button>
+                </header>
+                <div class="task-board">
+                    <div class="task-column glass-panel">
+                        <h3>To Do</h3>
+                        <div class="task-list" id="todo-list"></div>
+                    </div>
+                    <div class="task-column glass-panel">
+                        <h3>In Progress</h3>
+                        <div class="task-list" id="inprogress-list"></div>
+                    </div>
+                    <div class="task-column glass-panel">
+                        <h3>Done</h3>
+                        <div class="task-list" id="done-list"></div>
+                    </div>
+                </div>
+            </section>
+            <section id="habits" class="page-section">
+                <header class="section-header">
+                    <h1>Habits</h1>
+                    <button class="btn-primary" id="add-habit-btn"><i class="fa-solid fa-plus"></i> New Habit</button>
+                </header>
+                <div class="habits-grid" id="habits-container">
+                </div>
+            </section>
+            <section id="goals" class="page-section">
+                <header class="section-header">
+                    <h1>Goals</h1>
+                    <button class="btn-primary" id="add-goal-btn"><i class="fa-solid fa-plus"></i> New Goal</button>
+                </header>
+                <div class="goals-container" id="goals-container">
+                </div>
+            </section>
+            <section id="profile" class="page-section">
+                <header class="section-header">
+                    <h1>My Profile</h1>
+                </header>
+                <div class="glass-panel" style="padding: 40px; max-width: 600px; margin: 0 auto; text-align: center;">
+                    <div
+                        style="width: 120px; height: 120px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 50%; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; font-size: 48px; color: white;">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                    <form id="profile-form" style="display: flex; flex-direction: column; gap: 24px; text-align: left;">
+                        <div>
+                            <label style="display: block; margin-bottom: 8px; color: var(--text-secondary);">Display
+                                Name</label>
+                            <input type="text" id="profile-name" class="glass-input" style="width: 100%;"
+                                placeholder="Enter your name">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 8px; color: var(--text-secondary);">Status /
+                                Bio</label>
+                            <textarea id="profile-bio" class="glass-input" style="width: 100%;" rows="3"
+                                placeholder="What's on your mind?"></textarea>
+                        </div>
+                        <div style="display: flex; justify-content: flex-end; margin-top: 16px;">
+                            <button type="button" id="profile-save-btn" class="btn-primary">
+                                <i class="fa-solid fa-save"></i> Save Profile
+                            </button>
+                        </div>
+                    </form>
+                    <hr style="border: 0; border-top: 1px solid var(--glass-border); margin: 32px 0;">
+                    <h3 style="margin-bottom: 16px; text-align: left; color: var(--text-secondary);">Player Stats</h3>
+                    <div class="profile-stats-grid">
+                        <div class="glass-panel profile-stat-card">
+                            <div class="stat-icon accent-purple"><i class="fa-solid fa-bolt"></i></div>
+                            <div>
+                                <h4 id="profile-level">Lvl 1</h4>
+                                <p>Current Level</p>
+                            </div>
+                        </div>
+                        <div class="glass-panel profile-stat-card">
+                            <div class="stat-icon accent-blue"><i class="fa-solid fa-star"></i></div>
+                            <div>
+                                <h4 id="profile-xp">0 XP</h4>
+                                <p>Total XP</p>
+                            </div>
+                        </div>
+                        <div class="glass-panel profile-stat-card">
+                            <div class="stat-icon accent-green"><i class="fa-solid fa-check-double"></i></div>
+                            <div>
+                                <h4 id="profile-tasks">0</h4>
+                                <p>Tasks Done</p>
+                            </div>
+                        </div>
+                        <div class="glass-panel profile-stat-card">
+                            <div class="stat-icon accent-purple"><i class="fa-solid fa-fire"></i></div>
+                            <div>
+                                <h4 id="profile-habits">0</h4>
+                                <p>Habit Check-ins</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal glass-panel">
+            <div class="modal-header">
+                <h2 id="modal-title">Add Item</h2>
+                <button class="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="details-form">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" id="save-item-btn">Save</button>
+            </div>
+        </div>
+    </div>
+    <script src="charts.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
