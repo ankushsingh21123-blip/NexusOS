@@ -1,6 +1,6 @@
-# 🚀 LifeOS
+# 🎮 NexusOS
 
-**A gamified personal productivity dashboard that transforms your daily tasks into an adventure.**
+**A gamified personal productivity dashboard that transforms your daily tasks, habits, and focus into an RPG adventure.**
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -10,127 +10,60 @@
 
 ## ✨ Features
 
-### 📊 Dashboard
-- **Productivity Overview** – See your tasks completed, habit streaks, level progression, and productivity percentage at a glance
-- **Productivity Trend Chart** – Visualize your task completion over the last 7 days
-- **Habit Heatmap** – GitHub-style contribution graph to track your yearly habit consistency
-- **Daily Inspirational Quotes** – Stay motivated with wisdom from great minds
+### 📊 Dashboard & Telemetry
+- **Productivity Overview** – Live metrics on completed tasks, streak multipliers, level progression, and daily productivity index.
+- **Productivity Trend Chart** – Interactive visual analytics tracking 7-day completion rates.
+- **Habit Heatmap** – GitHub-style contribution matrix tracking year-round consistency.
+- **Daily Inspiration** – Curated quotes from pioneers and philosophers.
 
-### ⏱️ Focus Timer
-- **Pomodoro-style Timer** – Customizable focus sessions (25, 45, or 60 minutes)
-- **Circular Progress Ring** – Beautiful visual feedback while you work
-- **XP Rewards** – Earn 50 XP for every completed focus session
+### ⏱️ Deep Work Timer
+- **Pomodoro Engine** – Configurable focus intervals (25, 45, or 60 minutes).
+- **Circular SVG Progress** – Smooth visual feedback ring during active sprints.
+- **XP Progression** – Earn experience points upon every completed focus cycle.
 
-### ✅ Task Management
-- **Kanban Board** – Organize tasks into "To Do", "In Progress", and "Done" columns
-- **Drag & Drop** – Easily move tasks between columns
-- **Priority Levels** – Mark tasks as Low, Medium, or High priority
-- **XP System** – Earn 10 XP for each completed task
+### ✅ Task Architecture & Kanban
+- **Interactive Kanban Board** – Seamless workflow transitions across "To Do", "In Progress", and "Done".
+- **Drag & Drop** – Native drag-and-drop mechanics.
+- **Priority Tiering** – Visual tagging across Low, Medium, and High impact tasks.
 
-### 🔥 Habit Tracking
-- **Daily Check-ins** – Track your habits with one-click completion
-- **Streak Counter** – Build momentum with visible streak tracking
-- **Flexible Frequency** – Set habits as daily or weekly
+### 🔥 Habit Calibration
+- **Daily Check-ins** – One-tap streak verification.
+- **Dynamic Streaks** – Persistent momentum counters powered by localStorage.
+- **Adaptive Cadence** – Daily and weekly recurring schedule options.
 
-### 🎯 Goal Tracking
-- **Progress Sliders** – Track goal completion from 0-100%
-- **Custom Targets** – Set numeric goals with custom units (e.g., save $5000)
-- **Deadline Tracking** – Set target dates for your goals
-- **Completion Rewards** – Earn 20-30 XP when you achieve your goals
-
-### 🎮 Gamification
-- **XP & Leveling System** – Earn experience points and level up
-- **Visual Progress** – XP bar shows progress to next level
-- **User Profile** – Customize your name and view your stats
-
+### 🎯 Milestone & Goal Tracking
+- **Progress Sliders** – Granular completion tracking (0–100%).
+- **Custom Targets & Units** – Financial targets, reading volumes, coding milestones.
+- **Deadline Indicators** – Visual alerts approaching target dates.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **HTML5** – Semantic markup
-- **CSS3** – Modern styling with:
-  - CSS Custom Properties (variables)
-  - Glassmorphism design
-  - Flexbox & Grid layouts
-  - Smooth animations & transitions
-  - Fully responsive design
-- **Vanilla JavaScript** – No frameworks, pure ES6+
-  - Class-based architecture
-  - Local Storage persistence
-  - Custom event system
+- **Markup**: Semantic HTML5
+- **Styling**: Vanilla CSS3 with Custom Properties, Glassmorphism, CSS Grid, and Flexbox
+- **Logic**: Vanilla ES6+ JavaScript (Class-based architecture, localStorage offline persistence)
+- **Visuals**: Chart.js for data visualization, FontAwesome 6 icons
 
 ---
 
-## 🚀 Getting Started
+## ⚡ Quick Start
 
-### Prerequisites
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- No build tools or dependencies required!
+No build steps required. Simply open `index.html` in any modern web browser or serve locally:
 
-### Installation
+```bash
+# Using Python
+python -m http.server 8000
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/dheeraj-codingdesk/LifeOS.git
-   cd LifeOS
-   ```
-
-2. **Open in browser**
-   ```bash
-   # Simply open index.html in your browser
-   # Or use a local server:
-   npx serve .
-   ```
-
-3. **Start being productive!** 🎉
-
----
-
-## 📁 Project Structure
-
-```
-lifeos/
-├── index.html      # Main HTML structure
-├── style.css       # Complete styling with responsive design
-├── script.js       # Application logic and controllers
-├── charts.js       # Custom chart rendering engine
-└── README.md       # You are here!
+# Using Node.js npx
+npx serve .
 ```
 
 ---
 
-## 🎨 Design Features
+## 👨‍💻 Author
 
-- **Glassmorphism UI** – Modern frosted glass aesthetic
-- **Dark Theme** – Easy on the eyes, perfect for long work sessions
-- **Gradient Accents** – Beautiful purple-to-pink gradients
-- **Responsive Layout** – Works on desktop, tablet, and mobile
-- **Smooth Animations** – Polished micro-interactions throughout
-
----
-
-## 💾 Data Persistence
-
-All your data is saved locally in your browser using `localStorage`. Your tasks, habits, goals, and progress are preserved between sessions. No account required!
-
----
-
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-## 🙏 Acknowledgments
-
-- [Font Awesome](https://fontawesome.com/) for icons
-- [Google Fonts](https://fonts.google.com/) for the Outfit typeface
-- Inspired by productivity systems like GTD and the Pomodoro Technique
-
----
-
-<p align="center">
-  Made with ❤️ for productivity enthusiasts
-</p>
+**Ankush Singh**  
+- GitHub: [@ankushsingh21123-blip](https://github.com/ankushsingh21123-blip)  
+- LinkedIn: [Ankush Singh](https://www.linkedin.com/in/ankush-singh-8b43b3388/)  
+- Email: ankushsingh21123@gmail.com
