@@ -45,12 +45,12 @@
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Multi-Language Architecture & Tech Stack
 
-- **Markup**: Semantic HTML5
-- **Styling**: Vanilla CSS3 with Custom Properties, Glassmorphism, CSS Grid, and Flexbox
-- **Logic**: Vanilla ES6+ JavaScript (Class-based architecture, localStorage offline persistence)
-- **Visuals**: Chart.js for data visualization, FontAwesome 6 icons
+- **Frontend Application**: Semantic HTML5, Vanilla CSS3 (Glassmorphism, CSS Grid), Vanilla ES6+ JavaScript, Chart.js
+- **Gamification REST API (`backend-python/`)**: Python 3.12, FastAPI, Uvicorn, Exponential XP curves, Habit streak algorithms, Boss raid multiplayer telemetry
+- **RPG Simulation Core (`engine-cpp/`)**: Modern C++20, CMake, 64-bit XorShift PRNG, Loot roll probability matrix, High-speed deterministic combat simulation
+
 
 ---
 
